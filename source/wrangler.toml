@@ -10,4 +10,5 @@ compatibility_date = "2026-10-28"
 CONTACT_FROM_EMAIL = "onboarding@resend.dev"
 CONTACT_TO_EMAIL = "timothymadubooks@gmail.com"
 PUBLIC_SITE_URL = "https://business-playbook-series.kcboytimo.workers.dev/"
+PUBLIC_TURNSTILE_SITE_KEY = "0x4AAAAAAFsYTFJig2hOVLeM"
 # ...
