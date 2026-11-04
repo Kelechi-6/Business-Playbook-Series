@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /search/
-Sitemap: https://localhost:3000/sitemap.xml
+Sitemap: https://timothy-madu-business-playbooks.crispcod3.chatgpt.site/sitemap.xml

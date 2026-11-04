@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin - Business Playbook Series</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    .header { background: #102c3b; color: white; padding: 20px; margin: -20px -20px 20px -20px; }
+    .header h1 { font-size: 24px; }
+    .login-form { max-width: 400px; margin: 100px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .login-form input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+    .login-form button { width: 100%; padding: 12px; background: #102c3b; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    .login-form button:hover { background: #1a3a4d; }
+    .error { color: #d32f2f; margin-top: 10px; }
+    .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+    .tab { padding: 10px 20px; background: white; border: none; cursor: pointer; border-radius: 4px; }
+    .tab.active { background: #102c3b; color: white; }
+    .list { background: white; border-radius: 8px; overflow: hidden; }
+    .list-item { padding: 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+    .list-item:last-child { border-bottom: none; }
+    .list-item h3 { margin: 0 0 5px 0; }
+    .list-item p { margin: 0; color: #666; font-size: 14px; }
+    .list-item .actions { display: flex; gap: 10px; }
+    .btn { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; }
+    .btn-primary { background: #102c3b; color: white; }
+    .btn-secondary { background: #e0e0e0; }
+    .btn-danger { background: #d32f2f; color: white; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+    .modal.active { display: flex; align-items: center; justify-content: center; }
+    .modal-content { background: white; padding: 30px; border-radius: 8px; max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+    .form-group textarea { min-height: 100px; }
+    .form-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+    .hidden { display: none !important; }
+    .badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+    .badge.published { background: #4caf50; color: white; }
+    .badge.draft { background: #ff9800; color: white; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    const API_BASE = '/api/admin';
+    let token = localStorage.getItem('adminToken');
+    let currentTab = 'books';
+
+    function render() {
+      const app = document.getElementById('app');
+      if (!token) {
+        app.innerHTML = renderLogin();
+      } else {
+        app.innerHTML = renderDashboard();
+        loadCurrentTab();
+      }
+    }
+
+    function renderLogin() {
+      return `
+        <div class="login-form">
+          <h2 style="margin-bottom: 20px;">Admin Login</h2>
+          <form onsubmit="handleLogin(event)">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <div id="loginError" class="error hidden"></div>
+          </form>
+        </div>
+      `;
+    }
+
+    function renderDashboard() {
+      return `
+        <div class="container">
+          <div class="header">
+            <h1>Admin Dashboard</h1>
+            <button class="btn btn-secondary" onclick="logout()" style="margin-top: 10px;">Logout</button>
+          </div>
+          <div class="tabs">
+            <button class="tab ${currentTab === 'books' ? 'active' : ''}" onclick="switchTab('books')">Books</button>
+            <button class="tab ${currentTab === 'series' ? 'active' : ''}" onclick="switchTab('series')">Series</button>
+            <button class="tab ${currentTab === 'resources' ? 'active' : ''}" onclick="switchTab('resources')">Resources</button>
+          </div>
+          <div class="list" id="list"></div>
+          <button class="btn btn-primary" style="margin-top: 20px;" onclick="createItem()">Add New</button>
+        </div>
+        <div id="modal" class="modal"></div>
+      `;
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      try {
+        const res = await fetch(`${API_BASE}/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        
+        if (data.token) {
+          token = data.token;
+          localStorage.setItem('adminToken', token);
+          render();
+        } else {
+          document.getElementById('loginError').textContent = data.error || 'Login failed';
+          document.getElementById('loginError').classList.remove('hidden');
+        }
+      } catch (err) {
+        document.getElementById('loginError').textContent = 'Login failed';
+        document.getElementById('loginError').classList.remove('hidden');
+      }
+    }
+
+    function logout() {
+      token = null;
+      localStorage.removeItem('adminToken');
+      render();
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      render();
+    }
+
+    async function loadCurrentTab() {
+      const list = document.getElementById('list');
+      list.innerHTML = '<p style="padding: 20px;">Loading...</p>';
+      
+      try {
+        const res = await fetch(`${API_BASE}/${currentTab}`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const data = await res.json();
+        
+        if (Array.isArray(data)) {
+          list.innerHTML = data.map(item => `
+            <div class="list-item">
+              <div>
+                <h3>${item.title || item.name}</h3>
+                <p>${item.slug}</p>
+                <span class="badge ${item.status}">${item.status}</span>
+              </div>
+              <div class="actions">
+                <button class="btn btn-secondary" onclick="editItem('${item.id}')">Edit</button>
+                <button class="btn btn-danger" onclick="deleteItem('${item.id}')">Delete</button>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          list.innerHTML = '<p style="padding: 20px;">No items found</p>';
+        }
+      } catch (err) {
+        list.innerHTML = '<p style="padding: 20px; color: red;">Failed to load</p>';
+      }
+    }
+
+    function createItem() {
+      const modal = document.getElementById('modal');
+      modal.innerHTML = renderForm();
+      modal.classList.add('active');
+    }
+
+    async function editItem(id) {
+      const modal = document.getElementById('modal');
+      modal.innerHTML = '<div class="modal-content">Loading...</div>';
+      modal.classList.add('active');
+      
+      try {
+        const res = await fetch(`${API_BASE}/${currentTab}/${id}`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const data = await res.json();
+        modal.innerHTML = renderForm(data);
+      } catch (err) {
+        modal.innerHTML = '<div class="modal-content">Failed to load</div>';
+      }
+    }
+
+    function renderForm(data = {}) {
+      const fields = getFormFields(currentTab, data);
+      return `
+        <div class="modal-content">
+          <h2 style="margin-bottom: 20px;">${data.id ? 'Edit' : 'Add'} ${currentTab.slice(0, -1)}</h2>
+          <form onsubmit="saveItem(event, '${data.id || ''}')">
+            ${fields}
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      `;
+    }
+
+    function getFormFields(type, data) {
+      const commonFields = `
+        <div class="form-group">
+          <label>ID</label>
+          <input type="text" name="id" value="${data.id || ''}" ${data.id ? 'readonly' : ''} required>
+        </div>
+        <div class="form-group">
+          <label>Slug</label>
+          <input type="text" name="slug" value="${data.slug || ''}" required>
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select name="status">
+            <option value="draft" ${data.status === 'draft' ? 'selected' : ''}>Draft</option>
+            <option value="published" ${data.status === 'published' ? 'selected' : ''}>Published</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>SEO Title</label>
+          <input type="text" name="seoTitle" value="${data.seoTitle || ''}" required>
+        </div>
+        <div class="form-group">
+          <label>Meta Description</label>
+          <textarea name="metaDescription" required>${data.metaDescription || ''}</textarea>
+        </div>
+      `;
+
+      if (type === 'books') {
+        return commonFields + `
+          <div class="form-group">
+            <label>Series ID</label>
+            <input type="text" name="seriesId" value="${data.seriesId || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Series Number</label>
+            <input type="number" name="seriesNumber" value="${data.seriesNumber || 1}" required>
+          </div>
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" value="${data.title || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Subtitle</label>
+            <input type="text" name="subtitle" value="${data.subtitle || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Author</label>
+            <input type="text" name="author" value="${data.author || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Short Description</label>
+            <textarea name="shortDescription" required>${data.shortDescription || ''}</textarea>
+          </div>
+          <div class="form-group">
+            <label>Cover</label>
+            <input type="text" name="cover" value="${data.cover || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Cover Alt</label>
+            <input type="text" name="coverAlt" value="${data.coverAlt || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Categories (comma-separated)</label>
+            <input type="text" name="categories" value="${(data.categories || []).join(', ')}">
+          </div>
+          <div class="form-group">
+            <label>Featured</label>
+            <select name="featured">
+              <option value="false" ${!data.featured ? 'selected' : ''}>No</option>
+              <option value="true" ${data.featured ? 'selected' : ''}>Yes</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>New Release</label>
+            <select name="newRelease">
+              <option value="false" ${!data.newRelease ? 'selected' : ''}>No</option>
+              <option value="true" ${data.newRelease ? 'selected' : ''}>Yes</option>
+            </select>
+          </div>
+        `;
+      }
+
+      if (type === 'series') {
+        return commonFields + `
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" value="${data.name || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea name="description" required>${data.description || ''}</textarea>
+          </div>
+          <div class="form-group">
+            <label>Reading Order (comma-separated IDs)</label>
+            <input type="text" name="readingOrder" value="${(data.readingOrder || []).join(', ')}">
+          </div>
+        `;
+      }
+
+      if (type === 'resources') {
+        return commonFields + `
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" value="${data.title || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Summary</label>
+            <textarea name="summary" required>${data.summary || ''}</textarea>
+          </div>
+          <div class="form-group">
+            <label>Author</label>
+            <input type="text" name="author" value="${data.author || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Type</label>
+            <input type="text" name="type" value="${data.type || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="text" name="date" value="${data.date || ''}" required>
+          </div>
+          <div class="form-group">
+            <label>Categories (comma-separated)</label>
+            <input type="text" name="categories" value="${(data.categories || []).join(', ')}">
+          </div>
+        `;
+      }
+
+      return commonFields;
+    }
+
+    async function saveItem(e, id) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = {};
+      
+      for (const [key, value] of formData.entries()) {
+        if (key === 'categories' || key === 'readingOrder') {
+          data[key] = value.split(',').map(s => s.trim()).filter(s => s);
+        } else if (key === 'featured' || key === 'newRelease') {
+          data[key] = value === 'true';
+        } else if (key === 'seriesNumber') {
+          data[key] = parseInt(value);
+        } else {
+          data[key] = value;
+        }
+      }
+
+      // Add required array fields
+      if (currentTab === 'books') {
+        data.description = data.description || [];
+        data.contributors = data.contributors || [];
+        data.tags = data.tags || [];
+        data.keywords = data.keywords || [];
+        data.audience = data.audience || [];
+        data.takeaways = data.takeaways || [];
+        data.tableOfContents = data.tableOfContents || [];
+        data.currency = data.currency || 'USD';
+        data.productType = data.productType || 'book';
+      }
+      if (currentTab === 'resources') {
+        data.body = data.body || [];
+        data.tags = data.tags || [];
+        data.relatedBooks = data.relatedBooks || [];
+      }
+
+      try {
+        const url = id ? `${API_BASE}/${currentTab}/${id}` : `${API_BASE}/${currentTab}`;
+        const method = id ? 'PUT' : 'POST';
+        
+        const res = await fetch(url, {
+          method,
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        
+        if (res.ok) {
+          closeModal();
+          loadCurrentTab();
+        } else {
+          const error = await res.json();
+          alert('Error: ' + (error.error || 'Save failed'));
+        }
+      } catch (err) {
+        alert('Error: Save failed');
+      }
+    }
+
+    async function deleteItem(id) {
+      if (!confirm('Are you sure you want to delete this item?')) return;
+      
+      try {
+        const res = await fetch(`${API_BASE}/${currentTab}/${id}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        
+        if (res.ok) {
+          loadCurrentTab();
+        } else {
+          alert('Delete failed');
+        }
+      } catch (err) {
+        alert('Delete failed');
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+    }
+
+    render();
+  </script>
+</body>
+</html>

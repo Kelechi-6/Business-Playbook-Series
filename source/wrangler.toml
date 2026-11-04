@@ -4,11 +4,14 @@ compatibility_date = "2026-10-28"
 # Only used if independently deploying to Cloudflare Workers using Wrangler.
 # Run npm run build first. Runtime secrets belong in your account, not here.
 # Configure PUBLIC_SITE_URL, PUBLIC_TURNSTILE_SITE_KEY, CONTACT_TO_EMAIL,
-# CONTACT_FROM_EMAIL and secrets RESEND_API_KEY / TURNSTILE_SECRET_KEY.
+# CONTACT_FROM_EMAIL, SUPABASE_URL, SUPABASE_ANON_KEY and secrets
+# RESEND_API_KEY / TURNSTILE_SECRET_KEY / SUPABASE_SERVICE_ROLE_KEY.
 # ...
 [vars]
 CONTACT_FROM_EMAIL = "onboarding@resend.dev"
 CONTACT_TO_EMAIL = "timothymadubooks@gmail.com"
 PUBLIC_SITE_URL = "https://business-playbook-series.kcboytimo.workers.dev/"
 PUBLIC_TURNSTILE_SITE_KEY = "0x4AAAAAAFsYTFJig2hOVLeM"
+SUPABASE_URL = "https://ancslwglafzxfyetthnc.supabase.co"
+SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFuY3Nsd2dsYWZ6eGZ5ZXR0aG5jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwNDA4MzYsImV4cCI6MjA5MjYxNjgzNn0.25CV08VVKZOuYkZmSMd1zDQVBNZoo9zYgZvzrNAW6u0"
 # ...
