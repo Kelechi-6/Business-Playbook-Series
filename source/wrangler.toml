@@ -5,3 +5,9 @@ compatibility_date = "2026-10-28"
 # Run npm run build first. Runtime secrets belong in your account, not here.
 # Configure PUBLIC_SITE_URL, PUBLIC_TURNSTILE_SITE_KEY, CONTACT_TO_EMAIL,
 # CONTACT_FROM_EMAIL and secrets RESEND_API_KEY / TURNSTILE_SECRET_KEY.
+# ...
+[vars]
+CONTACT_FROM_EMAIL = "onboarding@resend.dev"
+CONTACT_TO_EMAIL = "timothymadubooks@gmail.com"
+PUBLIC_SITE_URL = "https://business-playbook-series.kcboytimo.workers.dev/"
+# ...
