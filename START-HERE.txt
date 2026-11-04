@@ -1,0 +1,28 @@
+TIMOTHY MADU | BUSINESS PLAYBOOK SERIES
+
+Complete reusable publishing platform, delivered 28 October 2026.
+
+1. Open source/README.md for installation and a feature overview.
+2. Install Node.js 24 and open a terminal in source/.
+3. Run: npm ci
+4. Run: npm run dev
+5. In another terminal, run: npm run edit
+6. Open the exact private editor URL printed in that terminal.
+
+Add books without changing application code: source/docs/ADDING-A-PLAYBOOK.md
+Export and host migration: source/docs/MIGRATION.md
+Deployment: source/docs/DEPLOYMENT.md
+Contact setup: source/docs/SECURITY-AND-CONTACT.md
+Checks and limitations: source/docs/VERIFICATION-RESULTS.md
+
+Repository export: repository.bundle
+To clone: git clone repository.bundle my-publishing-website
+Then follow source/docs/REPOSITORY.md to connect your own Git remote.
+
+Content backup: content-backup.json (covers are in source/public/assets/)
+No database or hosted CMS subscription is needed.
+
+Your site: https://timothy-madu-business-playbooks.crispcod3.chatgpt.site
+It remains private and requires your ChatGPT sign-in.
+
+Real purchase links, contact details, mail/spam-protection credentials, legal review and a custom domain remain owner configuration tasks. No real email delivery, purchase, second-host deployment or Docker image deployment is claimed.

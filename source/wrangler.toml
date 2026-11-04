@@ -1,0 +1,7 @@
+name = "business-playbook-series"
+main = "dist/server/index.js"
+compatibility_date = "2026-10-28"
+# Only used if independently deploying to Cloudflare Workers using Wrangler.
+# Run npm run build first. Runtime secrets belong in your account, not here.
+# Configure PUBLIC_SITE_URL, PUBLIC_TURNSTILE_SITE_KEY, CONTACT_TO_EMAIL,
+# CONTACT_FROM_EMAIL and secrets RESEND_API_KEY / TURNSTILE_SECRET_KEY.

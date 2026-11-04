@@ -1,0 +1,266 @@
+{
+  "site": {
+    "name": "The Business Playbook Series",
+    "author": "Timothy Madu",
+    "url": "https://timothy-madu-business-playbooks.crispcod3.chatgpt.site",
+    "tagline": "Practical Thinking. Better Decisions. Stronger Businesses.",
+    "heroTitle": "Better questions. Stronger businesses.",
+    "heroDescription": "Practical playbooks for understanding your customers, evaluating revenue opportunities and deciding what to improve next.",
+    "homeFeatured": [
+      "customer-friction",
+      "missed-revenue"
+    ],
+    "email": "timothymadubooks@gmail.com",
+    "whatsapp": "+2349012922022",
+    "authorBio": "Timothy Madu is a business owner, entrepreneur and author based in Yenagoa, Bayelsa State, Nigeria. He owns KC TIMO AUTOMOBILES. His Business Playbook Series focuses on practical questions about customer experience, revenue opportunities and business improvement.",
+    "mission": "To make practical business thinking accessible to owners and teams, with clear questions, structured methods and attention to what the evidence supports.",
+    "philosophy": [
+      "Start with the real business problem.",
+      "Investigate before recommending a solution.",
+      "Consider the costs and consequences of acting.",
+      "State only what the evidence supports."
+    ],
+    "seoDescription": "Explore Timothy Madu’s Business Playbook Series: practical books on customer experience, revenue opportunities and business improvement.",
+    "socialImage": "/assets/author-banner.png"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy policy",
+      "updated": "2026-10-28",
+      "sections": [
+        {
+          "heading": "About this website",
+          "text": "This website introduces Timothy Madu and the Business Playbook Series. This initial policy describes the features included in this version. The publisher must review and update it before a public launch or any change to data collection."
+        },
+        {
+          "heading": "Browsing and search",
+          "text": "Catalogue search runs in your browser. This site does not include advertising trackers, analytics scripts or a mailing list. The hosting provider may process technical request information, including IP addresses, for operation and security. If the site is private, ChatGPT sign-in and access are managed by the hosting provider."
+        },
+        {
+          "heading": "Contact enquiries",
+          "text": "The contact form is disabled until delivery and spam protection are configured. When enabled, it collects your name, email address and message to respond to your enquiry. Cloudflare Turnstile processes a security challenge and Resend delivers the message to the publisher. Do not submit payment details or sensitive personal information."
+        },
+        {
+          "heading": "Storage and retention",
+          "text": "Messages are not stored in the website catalogue or content files. Delivered messages are retained in the publisher’s configured inbox and may appear in the mail provider’s delivery logs. The publisher must set and disclose a retention period, a privacy contact and any other required disclosures before enabling the form."
+        },
+        {
+          "heading": "Third-party links",
+          "text": "Purchase buttons, when configured, take you to an external seller. That service handles its own payments, delivery and privacy practices. No payment details are collected by this website."
+        },
+        {
+          "heading": "Your enquiries",
+          "text": "A public privacy contact has not yet been supplied. Privacy enquiries and applicable rights requests should use the publisher’s contact details once added. This policy needs final publisher review before public launch."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Website terms",
+      "updated": "2026-10-28",
+      "sections": [
+        {
+          "heading": "Use of this website",
+          "text": "This website provides information about the Business Playbook Series and related educational resources. Its content is general business information and does not replace advice suited to your circumstances."
+        },
+        {
+          "heading": "Intellectual property",
+          "text": "Book descriptions, original resources and other publisher content are protected by applicable intellectual property law. Free resources may be downloaded for your own use; permission is required for resale or redistribution unless a resource states otherwise."
+        },
+        {
+          "heading": "External purchases",
+          "text": "External sellers set and administer their own prices, availability, delivery, refunds and transaction terms. Review those terms before purchasing. The website does not process payments."
+        },
+        {
+          "heading": "Accuracy and availability",
+          "text": "The publisher aims to keep information accurate but may update descriptions, links and availability. Nothing on this website guarantees a financial or business result."
+        },
+        {
+          "heading": "Review before public launch",
+          "text": "The publisher must review these terms for the final business arrangements, applicable law and contact details before public launch. Product-specific licences, refund policies and other sale terms must be added if direct sales are introduced."
+        }
+      ]
+    }
+  },
+  "books": [
+    {
+      "id": "customer-friction",
+      "slug": "the-customer-friction-playbook",
+      "title": "The Customer Friction Playbook",
+      "subtitle": "A Practical System for Finding, Prioritising and Fixing the Barriers That Stop Customers From Buying, Staying and Returning",
+      "seriesId": "business-playbooks",
+      "seriesNumber": 1,
+      "cover": "/assets/customer-friction.svg",
+      "coverAlt": "Typographic website edition of The Customer Friction Playbook cover",
+      "shortDescription": "Find where effort, uncertainty or delay gets in the way of your customers, then decide which barriers deserve attention first.",
+      "description": [
+        "Every customer journey involves a sequence of decisions and actions. This playbook focuses on understanding where those actions become unnecessarily difficult and what a business can do about it.",
+        "Work through a structured improvement sequence: MAP, DETECT, DIAGNOSE, PRIORITISE, REDESIGN and MEASURE. Keep the focus on the cause of a problem and the evidence needed to assess the result."
+      ],
+      "author": "Timothy Madu",
+      "contributors": [],
+      "publicationDate": "",
+      "edition": "First edition",
+      "categories": [
+        "Customer experience"
+      ],
+      "tags": [
+        "Customer journey",
+        "Business improvement"
+      ],
+      "keywords": [
+        "customer friction",
+        "customer retention"
+      ],
+      "audience": [
+        "Business owners and founders",
+        "Customer experience and service teams",
+        "Marketing, product and operations professionals"
+      ],
+      "takeaways": [
+        "Map the steps customers need to take.",
+        "Investigate the causes of friction before choosing a fix.",
+        "Prioritise improvements and check what changes achieve."
+      ],
+      "tableOfContents": [],
+      "sampleUrl": "",
+      "price": null,
+      "currency": "USD",
+      "purchaseUrl": "",
+      "downloadUrl": "",
+      "productType": "book",
+      "featured": true,
+      "newRelease": false,
+      "status": "published",
+      "availability": "Purchase links will be added when confirmed.",
+      "seoTitle": "The Customer Friction Playbook | Timothy Madu",
+      "metaDescription": "Explore Timothy Madu’s practical system for finding, prioritising and fixing barriers that stop customers buying, staying and returning."
+    },
+    {
+      "id": "missed-revenue",
+      "slug": "the-missed-revenue-playbook",
+      "title": "The Missed Revenue Playbook",
+      "subtitle": "How to Find, Evaluate and Recover Revenue Your Business Is Already Positioned to Capture",
+      "seriesId": "business-playbooks",
+      "seriesNumber": 2,
+      "cover": "/assets/missed-revenue.svg",
+      "coverAlt": "Typographic website edition of The Missed Revenue Playbook cover",
+      "shortDescription": "Examine opportunities within your existing business and evaluate what may be recoverable, what it would cost to act and what evidence would demonstrate a worthwhile result.",
+      "description": [
+        "Revenue opportunities deserve careful evaluation. This playbook explores how to examine opportunities a business may already be positioned to capture, while considering costs, operational demands and customer impact.",
+        "An opportunity estimate is not a verified result. Keep baseline performance, attribution, incremental effect and contribution in view when assessing what an improvement actually achieves."
+      ],
+      "author": "Timothy Madu",
+      "contributors": [],
+      "publicationDate": "",
+      "edition": "First edition",
+      "categories": [
+        "Revenue opportunities"
+      ],
+      "tags": [
+        "Revenue evaluation",
+        "Business improvement"
+      ],
+      "keywords": [
+        "missed revenue",
+        "revenue opportunities"
+      ],
+      "audience": [
+        "Business owners and entrepreneurs",
+        "Sales and marketing managers",
+        "Consultants and growth practitioners"
+      ],
+      "takeaways": [
+        "Identify opportunities within the existing business.",
+        "Evaluate likely benefits alongside cost and feasibility.",
+        "Distinguish estimates from observed, attributable results."
+      ],
+      "tableOfContents": [],
+      "sampleUrl": "",
+      "price": null,
+      "currency": "USD",
+      "purchaseUrl": "",
+      "downloadUrl": "",
+      "productType": "book",
+      "featured": true,
+      "newRelease": false,
+      "status": "published",
+      "availability": "Publication and purchase details will be updated when confirmed.",
+      "seoTitle": "The Missed Revenue Playbook | Timothy Madu",
+      "metaDescription": "Discover a practical approach to finding and evaluating revenue opportunities your business may already be positioned to capture."
+    }
+  ],
+  "series": [
+    {
+      "id": "business-playbooks",
+      "slug": "business-playbooks",
+      "name": "The Business Playbook Series",
+      "description": "Practical frameworks for business improvement. Each playbook examines a distinct business challenge, helping owners and teams investigate what is happening and decide where to focus.",
+      "readingOrder": [
+        "customer-friction",
+        "missed-revenue"
+      ],
+      "status": "published",
+      "seoTitle": "The Business Playbook Series by Timothy Madu",
+      "metaDescription": "Explore the Business Playbook Series and its recommended reading order, starting with customer friction and missed revenue."
+    }
+  ],
+  "resources": [
+    {
+      "id": "before-you-change",
+      "slug": "four-questions-before-you-change-a-process",
+      "title": "Four questions before you change a business process",
+      "summary": "A short reflection for turning a business observation into an investigation.",
+      "type": "Insight",
+      "author": "Timothy Madu",
+      "date": "2026-10-28",
+      "categories": [
+        "Business improvement"
+      ],
+      "tags": [
+        "Evidence",
+        "Decision making"
+      ],
+      "body": [
+        "What did you actually observe? Describe the specific event or repeated pattern. Separate what you saw from your explanation of why it happened.",
+        "Who experienced the problem, and at which step? Place the observation in a customer or operational journey. Avoid assuming every customer has the same experience.",
+        "What evidence could challenge your explanation? Look for exceptions, alternative causes and missing information before choosing a solution.",
+        "How would you check the effect of a change? Decide what to measure, over what period and against which baseline. Consider cost and unintended consequences alongside the intended benefit."
+      ],
+      "relatedBooks": [
+        "customer-friction",
+        "missed-revenue"
+      ],
+      "downloadUrl": "",
+      "status": "published",
+      "seoTitle": "Four questions before changing a business process",
+      "metaDescription": "A practical business reflection on observation, causes, evidence and measuring the effect of a change."
+    },
+    {
+      "id": "business-reflection",
+      "slug": "business-reflection-worksheet",
+      "title": "The business reflection worksheet",
+      "summary": "A free, simple worksheet to record one observation, the evidence you have and what you still need to check.",
+      "type": "Free resource",
+      "author": "Timothy Madu",
+      "date": "2026-10-28",
+      "categories": [
+        "Business improvement"
+      ],
+      "tags": [
+        "Worksheet"
+      ],
+      "body": [
+        "Choose one customer or revenue question in your business. Record the observation first, then identify the evidence you need before deciding what to do.",
+        "This introductory worksheet is an original website resource. It is not a chapter excerpt or a validated business assessment."
+      ],
+      "relatedBooks": [
+        "customer-friction",
+        "missed-revenue"
+      ],
+      "downloadUrl": "/assets/business-reflection.txt",
+      "status": "published",
+      "seoTitle": "Free business reflection worksheet | Timothy Madu",
+      "metaDescription": "Download a free business reflection worksheet to record observations, evidence and useful next questions."
+    }
+  ]
+}

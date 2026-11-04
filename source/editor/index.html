@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Publishing content editor</title>
+    <link rel="stylesheet" href="/editor.css" />
+    <script src="/editor.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Business Playbook Series <span>Content studio</span></h1>
+      <p>Private local editor · changes are saved to your project files</p>
+    </header>
+    <div class="layout">
+      <aside>
+        <label for="collection">What would you like to edit?</label
+        ><select id="collection">
+          <option value="books">Playbooks & products</option>
+          <option value="series">Series</option>
+          <option value="resources">Resources & articles</option>
+          <option value="site">Homepage, author & contact</option>
+          <option value="legal">Privacy & terms</option>
+        </select>
+        <div id="records"></div>
+        <button id="new">+ Add new record</button>
+        <hr />
+        <button id="backup">Download content backup</button
+        ><button id="rebuild">Validate & rebuild</button>
+        <p class="hint">
+          1. Edit or add a record.<br />2. Save to validate and rebuild.<br />3.
+          Check the local website.<br />4. Deploy your updated build.<br /><br />Drafts
+          are excluded from public output. New series automatically receive an
+          index entry and detail page. New categories come from book category
+          fields.<br /><br />Read docs/ADDING-A-PLAYBOOK.md and
+          docs/DEPLOYMENT.md in your project.
+        </p>
+      </aside>
+      <main>
+        <div id="status" role="status" aria-live="polite">
+          Loading editor session…
+        </div>
+        <form id="record-form">
+          <div id="fields"></div>
+          <button type="submit" id="save">Save & rebuild website</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

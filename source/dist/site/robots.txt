@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /search/
+Sitemap: https://timothy-madu-business-playbooks.crispcod3.chatgpt.site/sitemap.xml

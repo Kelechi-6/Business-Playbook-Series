@@ -1,0 +1,45 @@
+{
+  "id": "customer-friction",
+  "slug": "the-customer-friction-playbook",
+  "title": "The Customer Friction Playbook",
+  "subtitle": "A Practical System for Finding, Prioritising and Fixing the Barriers That Stop Customers From Buying, Staying and Returning",
+  "seriesId": "business-playbooks",
+  "seriesNumber": 1,
+  "cover": "/assets/customer-friction.svg",
+  "coverAlt": "Typographic website edition of The Customer Friction Playbook cover",
+  "shortDescription": "Find where effort, uncertainty or delay gets in the way of your customers, then decide which barriers deserve attention first.",
+  "description": [
+    "Every customer journey involves a sequence of decisions and actions. This playbook focuses on understanding where those actions become unnecessarily difficult and what a business can do about it.",
+    "Work through a structured improvement sequence: MAP, DETECT, DIAGNOSE, PRIORITISE, REDESIGN and MEASURE. Keep the focus on the cause of a problem and the evidence needed to assess the result."
+  ],
+  "author": "Timothy Madu",
+  "contributors": [],
+  "publicationDate": "",
+  "edition": "First edition",
+  "categories": ["Customer experience"],
+  "tags": ["Customer journey", "Business improvement"],
+  "keywords": ["customer friction", "customer retention"],
+  "audience": [
+    "Business owners and founders",
+    "Customer experience and service teams",
+    "Marketing, product and operations professionals"
+  ],
+  "takeaways": [
+    "Map the steps customers need to take.",
+    "Investigate the causes of friction before choosing a fix.",
+    "Prioritise improvements and check what changes achieve."
+  ],
+  "tableOfContents": [],
+  "sampleUrl": "",
+  "price": null,
+  "currency": "USD",
+  "purchaseUrl": "",
+  "downloadUrl": "",
+  "productType": "book",
+  "featured": true,
+  "newRelease": false,
+  "status": "published",
+  "availability": "Purchase links will be added when confirmed.",
+  "seoTitle": "The Customer Friction Playbook | Timothy Madu",
+  "metaDescription": "Explore Timothy Madu’s practical system for finding, prioritising and fixing barriers that stop customers buying, staying and returning."
+}
